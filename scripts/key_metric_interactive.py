@@ -130,8 +130,7 @@ def get_historical_forecast(company_id, metric_id, entity_id):
     if response.status_code == 200:
         json_response = response.json()
         print('-'*40)
-        for r in json_response:
-            pprint(r)
+        pprint(json_response)
         print('-'*40)
     else:
         print(response.content)
