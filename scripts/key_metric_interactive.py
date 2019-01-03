@@ -22,7 +22,7 @@ def instruction():
     print('Search for time series data by metric id, entity id, metric periodicity, and country name (optional) -- 5')
     print('Search for forecasts by company name -- 6')
     print('Search for forecast by company id, metric id, and entity id -- 7')
-    print('Search for historical forecasts by company id, metric id, and entity id -- 8')
+    print('Search for forecast history by company id, metric id, and entity id -- 8')
     print('Exit -- 10')
     selection = input('Type in number: ')
     return selection
@@ -122,15 +122,16 @@ def get_forecast(company_id, metric_id, entity_id):
         print(response.content)
 
 
-def get_historical_forecast(company_id, metric_id, entity_id):
-    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve historical forecast'
-          % (company_id, metric_id, entity_id))
+def get_forecast_history(company_id, metric_id, entity_id):
+    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' % (company_id, metric_id, entity_id))
     url = DOMAIN + 'company/%s/metric/%s/entity/%s/forecast/history' % (company_id, metric_id, entity_id)
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         json_response = response.json()
         print('-'*40)
-        pprint(json_response)
+        print("description: %s" % json_response['description'])
+        for r in json_response['data']:
+            pprint(r)
         print('-'*40)
     else:
         print(response.content)
@@ -200,7 +201,7 @@ if __name__ == '__main__':
             company_id = input('Please choose company id of the company you want to search: ')
             metric_id = input('Please choose metric id of the metric you want to search: ')
             entity_id = input('Please choose entity id of the entity you want to search: ')
-            get_historical_forecast(company_id, metric_id, entity_id)
+            get_forecast_history(company_id, metric_id, entity_id)
 
         elif str(selection) == '10':
             print('Goodbye!')
