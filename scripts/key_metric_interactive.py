@@ -13,6 +13,7 @@ CLIENT_SECRET = ''
 DOMAIN = 'https://api.7parkdata.com/'
 HEADER = {'content-type': 'application/json'}
 
+
 def instruction():
     print('Select function:')
     print('Search for company by company name -- 1')
@@ -23,9 +24,11 @@ def instruction():
     print('Search for forecasts by company name -- 6')
     print('Search for forecast by company id, metric id, and entity id -- 7')
     print('Search for forecast history by company id, metric id, and entity id -- 8')
+    print('Search for forecast snapshot by company id, metric id, and entity id -- 9')
     print('Exit -- 10')
     selection = input('Type in number: ')
     return selection
+
 
 def company_name_to_id(company_name):
     print('Using company name: %s to retrieve company id' % company_name)
@@ -41,6 +44,7 @@ def company_name_to_id(company_name):
     else:
         print(response.content)
 
+
 def company_id_to_metrics(company_id):
     print('Using company id: %s to retrieve metric id' % company_id)
     url = DOMAIN + 'company/%s/metrics' % company_id
@@ -49,9 +53,10 @@ def company_id_to_metrics(company_id):
         print('-'*40)
         for r in response.json()['results']:
             print('%s [%s] -- %s' % (r['metric_name'], r['metric_id'], r['metric_description']))
-        print('-'*40) 
+        print('-'*40)
     else:
         print(response.content)
+
 
 def metric_id_to_entities(company_id, metric_id):
     print('Using company id: %s & metric id: %s to retrieve entity id' % (company_id, metric_id))
@@ -65,8 +70,10 @@ def metric_id_to_entities(company_id, metric_id):
     else:
         print(response.content)
 
+
 def get_queries(company_id, metric_id, entity_id):
-    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve queries' % (company_id, metric_id, entity_id))
+    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve queries' %
+          (company_id, metric_id, entity_id))
     url = DOMAIN + 'company/%s/metric/%s/entity/%s/queries' % (company_id, metric_id, entity_id)
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
@@ -76,6 +83,7 @@ def get_queries(company_id, metric_id, entity_id):
         print('-'*40)
     else:
         print(response.content)
+
 
 def get_time_series(metric_id, entity_id, metric_periodicity, country_name=''):
     print('Using metric id: %s, & entity id: %s %s' % (metric_id, entity_id, 'and country name: %s' % country_name if country_name else ''))
@@ -94,6 +102,7 @@ def get_time_series(metric_id, entity_id, metric_periodicity, country_name=''):
     else:
         print(response.content)
 
+
 def get_forecasts(company_name):
     print('Using company_name: %s to get forecasts')
     url = DOMAIN + 'forecasts'
@@ -107,8 +116,10 @@ def get_forecasts(company_name):
     else:
         print(response.content)
 
+
 def get_forecast(company_id, metric_id, entity_id):
-    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' % (company_id, metric_id, entity_id))
+    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' %
+          (company_id, metric_id, entity_id))
     url = DOMAIN + 'company/%s/metric/%s/entity/%s/forecast' % (company_id, metric_id, entity_id)
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
@@ -123,7 +134,8 @@ def get_forecast(company_id, metric_id, entity_id):
 
 
 def get_forecast_history(company_id, metric_id, entity_id):
-    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' % (company_id, metric_id, entity_id))
+    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' %
+          (company_id, metric_id, entity_id))
     url = DOMAIN + 'company/%s/metric/%s/entity/%s/forecast/history' % (company_id, metric_id, entity_id)
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
@@ -137,11 +149,26 @@ def get_forecast_history(company_id, metric_id, entity_id):
         print(response.content)
 
 
+def get_forecast_snapshot(company_id, metric_id, entity_id):
+    print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' %
+          (company_id, metric_id, entity_id))
+    url = DOMAIN + 'company/%s/metric/%s/entity/%s/forecast/snapshot' % (company_id, metric_id, entity_id)
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        json_response = response.json()
+        print('-'*40)
+        pprint(json_response)
+        print('-'*40)
+    else:
+        print(response.content)
+
+
 if __name__ == '__main__':
     if not CLIENT_ID or not CLIENT_SECRET:
         print('You do not have your client id and secret set in script.')
         print('You can enter the id and secret acquired from https://account.7parkdata.com/#/akm_key/')
-        print('in the script, under "CLIENT_ID" and "CLIENT_SECRET" if you want to avoid being asked for them every time.')
+        print('in the script, under "CLIENT_ID" and "CLIENT_SECRET" if you want to avoid '
+              'being asked for them every time.')
         client_id = input('please enter your client id: ')
         client_secret = input('please enter your client secret: ')
     else:
@@ -202,6 +229,12 @@ if __name__ == '__main__':
             metric_id = input('Please choose metric id of the metric you want to search: ')
             entity_id = input('Please choose entity id of the entity you want to search: ')
             get_forecast_history(company_id, metric_id, entity_id)
+
+        elif str(selection) == '9':
+            company_id = input('Please choose company id of the company you want to search: ')
+            metric_id = input('Please choose metric id of the metric you want to search: ')
+            entity_id = input('Please choose entity id of the entity you want to search: ')
+            get_forecast_snapshot(company_id, metric_id, entity_id)
 
         elif str(selection) == '10':
             print('Goodbye!')
