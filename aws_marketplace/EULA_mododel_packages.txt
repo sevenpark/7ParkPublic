@@ -61,3 +61,4 @@ Buyer Indemnity. Buyer will, at its expense, indemnify, defend and hold harmless
 11.6 “Software” means the computer software identified in the applicable Standard Contract Listing and any other software, including any patches, bug fixes, corrections, remediation of security vulnerabilities, updates, upgrades, modifications, enhancements, derivative works, new releases and new versions of the Software that Licensor provides, or is obligated to provide, under this Agreement. 
 11.7 “Subscription” means a subscription ordered by Buyer in the AWS Marketplace and fulfilled by Licensor for the licensing and provision of Software listed in a Standard Contract Listing. . 
 11.8 “User” means an employee, non-employee worker or other member of Buyer or any of its Affiliates’ workforces or other person or software program or computer systems authorized by Buyer or any of its Affiliates to access and use the Software as permitted under this Agreement. 
+
