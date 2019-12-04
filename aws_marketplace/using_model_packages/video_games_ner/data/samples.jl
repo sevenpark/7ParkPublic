@@ -1,0 +1,3 @@
+{"id": 0, "instance": "One of the main things that Tower of Guns has going for it is the fact that every experience is randomly generated."}
+{"id": 1, "instance": "With each puzzle bracketed on either side by a checkpoint, Mushroom 11 at times feels a lot more like a puzzle game than a platformer."}
+{"id": 2, "instance": "These two features were among the most highly requested in Forza 5, and I’m glad they’re finally present, as they add significant variety to the gameplay."}
