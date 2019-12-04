@@ -13,7 +13,7 @@ class ModelPackageArnProvider:
             "eu-west-1": "arn:aws:sagemaker:eu-west-1:985815980388:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
             "eu-west-2": "arn:aws:sagemaker:eu-west-2:856760150666:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
             "us-east-1": "arn:aws:sagemaker:us-east-1:865070037744:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
-            "us-east-2": "arn:aws:sagemaker:us-east-1:865070037744:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
+            "us-east-2": "arn:aws:sagemaker:us-east-2:057799348421:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
             "us-west-1": "arn:aws:sagemaker:us-west-1:382657785993:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
             "us-west-2": "arn:aws:sagemaker:us-west-2:594846645681:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
             "eu-west-3": "arn:aws:sagemaker:eu-west-3:843114510376:model-package/ner-drugs-2019-11-22-20-00-09--099d95f005ca88538569ac533b125d18",
