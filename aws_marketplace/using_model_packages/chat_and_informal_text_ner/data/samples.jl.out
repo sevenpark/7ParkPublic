@@ -1,0 +1,5 @@
+{"SageMakerOutput":{"ner":[{"end_pos":26,"key":"nflx","start_pos":22,"type":"NE_TICKER_COMPANY"}]},"id":0,"instance":"Just checked, and the nflx data looks pretty postive"}
+{"SageMakerOutput":{"ner":[{"end_pos":32,"key":"Apple","start_pos":27,"type":"NE_TICKER_COMPANY"}]},"id":1,"instance":"we should definitely boost Apple weight"}
+{"SageMakerOutput":{"ner":[{"end_pos":4,"key":"Uber","start_pos":0,"type":"NE_TICKER_COMPANY"}]},"id":2,"instance":"Uber just published its lastest revenue number"}
+{"SageMakerOutput":{"ner":[{"end_pos":18,"key":"tsla","start_pos":14,"type":"NE_TICKER_COMPANY"}]},"id":3,"instance":"The report of tsla will be released today"}
+{"SageMakerOutput":{"ner":[{"end_pos":4,"key":"atvi","start_pos":0,"type":"NE_TICKER_COMPANY"}]},"id":4,"instance":"atvi got trapped and people just traded it"}
