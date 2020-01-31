@@ -1,0 +1,5 @@
+{"SageMakerOutput":{"ner":[{"end_pos":50,"key":"headteacher","start_pos":39,"type":"NE_JOBTITLE"}]},"id":0,"instance":"The course was set up by Mary, who was headteacher at Wallacestone Primary for over 30 years."}
+{"SageMakerOutput":{"ner":[{"end_pos":30,"key":"sales manager","start_pos":17,"type":"NE_JOBTITLE"}]},"id":1,"instance":"The meeting with sales manager was very informative."}
+{"SageMakerOutput":{"ner":[{"end_pos":51,"key":"chief risk officer","start_pos":33,"type":"NE_JOBTITLE"}]},"id":2,"instance":"Company appoints John as the new chief risk officer."}
+{"SageMakerOutput":{"ner":[{"end_pos":18,"key":"office manager","start_pos":4,"type":"NE_JOBTITLE"}]},"id":3,"instance":"The office manager will arrange a party on the last work day of this year."}
+{"SageMakerOutput":{"ner":[{"end_pos":24,"key":"CEO","start_pos":21,"type":"NE_JOBTITLE"}]},"id":4,"instance":"It’s a case of a new CEO setting a low bar and taking a very cautious approach."}
