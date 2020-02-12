@@ -4,3 +4,5 @@
 *.DS_Store
 *.pyc
 sendgrid.env
+
+local_test/
