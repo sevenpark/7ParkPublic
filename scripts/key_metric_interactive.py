@@ -149,10 +149,12 @@ def get_forecast_history(company_id, metric_id, entity_id):
         print(response.content)
 
 
-def get_forecast_snapshot(company_id, metric_id, entity_id):
+def get_forecast_snapshot(company_id, metric_id, entity_id, data_through=None):
     print('Using company id: %s, metric id: %s, & entity id: %s to retrieve forecast' %
           (company_id, metric_id, entity_id))
     url = DOMAIN + 'company/%s/metric/%s/entity/%s/forecast/snapshot' % (company_id, metric_id, entity_id)
+    if data_through:
+        url += f'?data_through={data_through}'
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         json_response = response.json()
@@ -234,7 +236,9 @@ if __name__ == '__main__':
             company_id = input('Please choose company id of the company you want to search: ')
             metric_id = input('Please choose metric id of the metric you want to search: ')
             entity_id = input('Please choose entity id of the entity you want to search: ')
-            get_forecast_snapshot(company_id, metric_id, entity_id)
+            data_through = input('Filter by data_through, give all data which data_through greater than giving date. '
+                                 '(Format: YYYY-MM-DD  Default: None)')
+            get_forecast_snapshot(company_id, metric_id, entity_id, data_through)
 
         elif str(selection) == '10':
             print('Goodbye!')
