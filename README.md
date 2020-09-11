@@ -1,2 +1,6 @@
-# 7ParkPublic
-This is the repo storing scripts for 7Park Data clients.
+# 7Park Data Public Repository
+
+The repository contains:
+- *aws_marketplace* - usage of 7Park machine learning models and algorithms hosted on AWS Marketplace.
+- *scripts* - examples of 7Park Data API interactions
+
